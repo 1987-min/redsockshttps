@@ -69,6 +69,7 @@ static void log_ssl_error(redsocks_client *client, struct bufferevent * buffev)
 {
     unsigned long err;
     redsocks_log_error(client, LOG_NOTICE,"log_ssl_error");
+    
     while ((err = (bufferevent_get_openssl_error(buffev)))) {
         const char *msg = (const char*)
             ERR_reason_error_string(err);
